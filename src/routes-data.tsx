@@ -1,4 +1,4 @@
-import { DeleteFilled, HomeFilled, StarFilled } from "@ant-design/icons"
+import { HomeFilled, StarFilled } from "@ant-design/icons"
 import { ReactNode } from "react"
 import { Home } from "./component/home"
 import { Favorite } from "./component/favorite"
@@ -6,7 +6,7 @@ import { Favorite } from "./component/favorite"
 export enum RouteEnum {
     Home = '/',
     Favorites = '/favorites',
-    Trash = '/trash',
+    // Trash = '/trash',
 }
 
 export const RoutesData: {
@@ -27,10 +27,10 @@ export const RoutesData: {
             icon: <StarFilled />,
             element: <Favorite />
         },
-        {
-            name: '回收站',
-            path: RouteEnum.Trash,
-            icon: <DeleteFilled />,
-            element: <>回收站</>
-        }
+        // {
+        //     name: '回收站',
+        //     path: RouteEnum.Trash,
+        //     icon: <DeleteFilled />,
+        //     element: <>回收站</>
+        // }
     ]
