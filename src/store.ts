@@ -2,28 +2,18 @@ import { message } from "antd";
 import constate from "constate"
 import { useCallback, useState } from "react";
 import { useAsync } from "react-use";
-export interface DataType {
-    title: string;
-    recommendCount: number;
-    replies: number;
-    topicIcon: string;
-    userHeader: string
-    lightReplyResult?: {
-        content?: string
-    }
-    tid: number;
-    picList: { url?: string }[];
-}
+import { DataType } from "./types/type";
 
-export interface ResponseType {
+interface ResponseType {
     data: {
         threadList: DataType[];
     };
 }
 
+
 const fetchData = async () => {
     const response = await fetch("/hupu/api/v2/bbs/walkingStreet/threads?page=1");
-    const body = (await response.json()) as ResponseType;
+    const body = (await response.json()) as ResponseType
     return body.data.threadList;
 };
 

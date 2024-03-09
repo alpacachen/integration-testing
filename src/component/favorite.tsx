@@ -10,7 +10,6 @@ export const Favorite = () => {
         return value?.filter(item => favoriteIds.includes(item.tid))
     }, [favoriteIds, value])
 
-    console.log(favoriteIds, 'favoriteIds')
     return <div className='flex flex-wrap gap-8 max-h-full overflow-scroll'>
         {favoriteDocs?.map((item) => {
             return <DocItem data={item} key={item.tid} actions={[

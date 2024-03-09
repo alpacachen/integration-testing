@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react"
-import { DataType } from "../store"
 import { Card } from "antd"
+import { DataType } from "../types/type";
 
 interface Props {
     data: DataType;
