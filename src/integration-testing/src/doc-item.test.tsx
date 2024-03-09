@@ -53,6 +53,7 @@ describe("G: 一个DocItem组件， 入参有图片", () => {
     })
     test("T: 会展示图片", () => {
         expect(screen.queryByText("部分内容")).not.toBeTruthy();
+        expect(screen.getByTestId("thumbnail")).toBeTruthy();
     });
 });
 describe("G: 一个DocItem组件， 入参有图片, 并且 action 传入了一个按钮，支持点击", () => {

@@ -17,6 +17,7 @@ export const DocItem: FC<Props> = ({ data, actions }) => {
                 {thumbnail ? <img
                     crossOrigin='anonymous'
                     alt="example"
+                    data-testid='thumbnail'
                     referrerPolicy='no-referrer'
                     src={thumbnail}
                 /> : data?.lightReplyResult?.content}
