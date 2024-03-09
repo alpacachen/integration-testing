@@ -14,7 +14,7 @@ const SideBarItem: FC<{ route: RouteItem }> = ({ route }) => {
 }
 
 export const SideBar = () => {
-    return <div className="w-200px b-r b-solid b-gray h-full">
+    return <div data-testid='side-bar' className="w-200px b-r b-solid b-gray h-full">
         {RoutesData.map((route, index) => {
             return <Link to={route.path} key={index} className="h-40px flex items-center">
                 <SideBarItem route={route} />

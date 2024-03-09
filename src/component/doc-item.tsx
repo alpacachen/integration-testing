@@ -11,6 +11,7 @@ export const DocItem: FC<Props> = ({ data, actions }) => {
     const thumbnail = data.picList[0]?.url ?? ''
     const avatar = data.userHeader
     return <Card
+        data-testid='doc-item'
         style={{ width: 300 }}
         cover={
             <div className='h-145px overflow-hidden'>

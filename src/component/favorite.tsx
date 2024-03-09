@@ -14,7 +14,7 @@ export const Favorite = () => {
         {favoriteDocs?.map((item) => {
             return <DocItem data={item} key={item.tid} actions={[
                 <Tooltip title='点击取消收藏'>
-                    <StarFilled onClick={() => removeFromFavorite(item.tid)} />
+                    <StarFilled data-testid='star-filled' onClick={() => removeFromFavorite(item.tid)} />
                 </Tooltip>
             ]}></DocItem>
         })}
