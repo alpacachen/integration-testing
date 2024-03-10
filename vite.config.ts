@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react(), UnoCSS()],
   test: {
     environment: 'jsdom',
+    setupFiles: ['test.setup.js'],
     coverage: {
       provider: 'istanbul',
     }

@@ -2,9 +2,8 @@ import { MemoryRouter } from 'react-router-dom'
 import APP from '../App'
 import { render, cleanup, within } from '@testing-library/react'
 import { vi } from 'vitest'
-import { fakeHttpHandler } from './fake-http-handler'
+import './fake-http-handler'
 vi.useFakeTimers()
-window.fetch = fakeHttpHandler
 export const createAppContext = () => {
     const container = render(<MemoryRouter>
         <APP />

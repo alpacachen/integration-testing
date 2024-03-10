@@ -7,16 +7,18 @@ export const Header = () => {
     const { title, updateTitle } = useListContext()
     const [open, setOpen] = useState(false)
     return <>
-        <div className="px-8 py-2 text-20px leading-24px">
-            {title} <Button onClick={() => setOpen(true)} icon={<EditFilled className="color-gray" />}></Button>
+        <div data-testid='header' className="px-8 py-2 text-20px leading-24px">
+            {title} <Button data-testid='change-title-but' onClick={() => setOpen(true)} icon={<EditFilled className="color-gray" />}></Button>
         </div>
-        <Modal
+        {open && <Modal
             title='修改名称'
-            open={open}
+            open={true}
+            data-testid='title-modal'
             okButtonProps={{
                 htmlType: 'submit',
                 form: 'form'
             }}
+            okText='确定修改'
             onCancel={() => setOpen(false)}
         >
             <Form
@@ -33,6 +35,6 @@ export const Header = () => {
                     <Input placeholder="请输入网站名称" />
                 </Form.Item>
             </Form>
-        </Modal>
+        </Modal>}
     </>
 }

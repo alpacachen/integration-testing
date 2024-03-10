@@ -23,9 +23,7 @@ router.get('/title',async ctx=>{
 
 router.post('/title',async ctx=>{
   const rb = ctx.request.body
-  console.log(rb);
   const title = rb.title
-  console.log(title);
   const data = await nc.pages.update({
     page_id: notionAuth.page_id,
     properties: {title: { title: [{text: {content: title}}] }}
