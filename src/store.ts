@@ -3,22 +3,26 @@ import constate from "constate"
 import { useCallback, useState } from "react";
 import { useAsync } from "react-use";
 import { DataType } from "./types/type";
-
-interface ResponseType {
-    data: {
-        threadList: DataType[];
-    };
-}
-
+import axios from 'axios';
 
 const fetchData = async () => {
-    const response = await fetch("/hupu/api/v2/bbs/walkingStreet/threads?page=1");
-    const body = (await response.json()) as ResponseType
-    return body.data.threadList;
+    const res = await axios.get("/hupu/api/v2/bbs/walkingStreet/threads?page=1")
+    return res.data.data.threadList as DataType[];
+};
+
+const fetchTitle = async () => {
+    const response = await axios.get("/api/title");
+    return response.data;
 };
 
 const useHook = () => {
     const { value, loading } = useAsync(fetchData, [])
+    const [n, setN] = useState(1)
+    const updateTitle = useCallback(async (t: string) => {
+        await axios.post("/api/title", { title: t });
+        setN(n => n + 1)
+    }, [])
+    const { value: title } = useAsync(fetchTitle, [n])
     const [favoriteIds, setFavoriteIds] = useState<number[]>([])
     const addToFavorite = useCallback((tid: number) => {
         setFavoriteIds((ids) => [...ids, tid])
@@ -29,7 +33,7 @@ const useHook = () => {
         message.success('已取消收藏')
     }, [])
 
-    return { loading, value, addToFavorite, favoriteIds, removeFromFavorite }
+    return { updateTitle, loading, value, title, addToFavorite, favoriteIds, removeFromFavorite }
 }
 
 export const [ListProvider, useListContext] = constate(useHook)

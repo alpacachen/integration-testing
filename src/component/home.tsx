@@ -5,6 +5,7 @@ import { Tooltip } from 'antd';
 
 export const Home = () => {
     const { loading, value, favoriteIds } = useListContext()
+    console.log(value)
     const { addToFavorite, removeFromFavorite } = useListContext()
     return <div className='flex flex-wrap gap-8 max-h-full overflow-scroll'>
         {loading && <div>loading...</div>}
