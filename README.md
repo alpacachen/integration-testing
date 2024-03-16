@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/alpacachen/integration-testing/graph/badge.svg?token=XL49TDRP4Y)](https://codecov.io/gh/alpacachen/integration-testing)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
