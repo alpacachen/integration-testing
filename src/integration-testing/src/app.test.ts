@@ -15,6 +15,7 @@ describe('G: 加载网站', () => {
     })
     describe('W: 请求完成', () => {
         beforeEach(async () => {
+            await vi.advanceTimersToNextTimerAsync()
             await vi.advanceTimersToNextTimerAsync();
         })
         it('T: 会展示文件列表 有 6 个文件， 展示title “集成测试教程”', () => {
