@@ -1,32 +1,11 @@
 [![codecov](https://codecov.io/gh/alpacachen/integration-testing/graph/badge.svg?token=XL49TDRP4Y)](https://codecov.io/gh/alpacachen/integration-testing)
 
-# React + TypeScript + Vite
+# 最强前端测试教程
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+介绍了如何基于 `react` `vite` `vitest` 搭建前端集成测试框架。
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+系列教程见[掘金专栏](https://juejin.cn/column/7344571313686904844)
 
-## Expanding the ESLint configuration
+持续更新中，老铁，来个关注。
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
