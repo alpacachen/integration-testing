@@ -14,6 +14,13 @@ const fetchTitle = async () => {
     const response = await axios.get("/api/title");
     return response.data;
 };
+const mockSlow = () => {
+    for (let i = 0; i < 3000; i++) {
+        const div = document.createElement('div');
+        div.innerText = `Element ${i}`;
+        document.body.appendChild(div);
+    }
+}
 
 const useHook = () => {
     const { value, loading } = useAsync(fetchData, [])
@@ -25,6 +32,7 @@ const useHook = () => {
     const { value: title } = useAsync(fetchTitle, [n])
     const [favoriteIds, setFavoriteIds] = useState<number[]>([])
     const addToFavorite = useCallback((tid: number) => {
+        mockSlow()
         setFavoriteIds((ids) => [...ids, tid])
         message.success('已收藏')
     }, [])

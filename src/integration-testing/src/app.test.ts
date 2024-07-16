@@ -1,6 +1,7 @@
-import { afterEach, beforeEach, vi, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, vi, describe, expect, it, beforeAll, afterAll } from "vitest";
 import { AppContext, createAppContext } from "../app-context";
 import { screen, within, fireEvent } from "@testing-library/react";
+import { startProfiling, stopProfiling } from "../profile";
 
 describe('G: 加载网站', () => {
     let _: AppContext
@@ -9,6 +10,12 @@ describe('G: 加载网站', () => {
     })
     afterEach(() => {
         _.cleanup()
+    })
+    beforeAll(async () => {
+        await startProfiling()
+    })
+    afterAll(async () => {
+        await stopProfiling()
     })
     it('T: 初始加载会请求接口，页面展示 loading', () => {
         expect(screen.getByText('loading...')).toBeTruthy()
